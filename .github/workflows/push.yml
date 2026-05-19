@@ -29,6 +29,8 @@ jobs:
         with:
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha
       - name: Build and push
         uses: docker/bake-action@v7
         with:
