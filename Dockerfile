@@ -1,4 +1,4 @@
-FROM summerwind/actions-runner:latest
+FROM summerwind/actions-runner-dind:latest
 
 USER 0
 RUN apt-get update \
