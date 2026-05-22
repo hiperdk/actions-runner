@@ -33,7 +33,6 @@ ENV ALLURE_VERSION="2.41.0"
 RUN curl -fsSL "${ALLURE_REPO}/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz" -o "/tmp/allure.tgz" \
  && tar xzf /tmp/allure.tgz \
  && rm /tmp/allure.tgz \
- && rm -rf allure \
- && mv allure-${ALLURE_VERSION} allure
+ && mv allure-${ALLURE_VERSION} /allure
 
 USER runner
