@@ -1,6 +1,6 @@
-FROM summerwind/actions-runner-dind:latest
+FROM ghcr.io/actions/actions-runner
 
-USER 0
+USER root
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
     docker-buildx \
@@ -22,4 +22,4 @@ RUN curl -fsSL "${ALLURE_REPO}/${ALLURE_VERSION}/allure-commandline-${ALLURE_VER
  && rm -rf allure \
  && mv allure-${ALLURE_VERSION} allure
 
-USER 1001
+USER runner
