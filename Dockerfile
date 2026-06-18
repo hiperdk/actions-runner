@@ -14,6 +14,7 @@ RUN apt-get update \
     groff \
     default-jre \
     build-essential \
+    openssh-client \
  && rm -rf /var/lib/apt/lists/*
 
 RUN . /etc/build-arch \
