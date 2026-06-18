@@ -1,4 +1,4 @@
-FROM summerwind/actions-runner:latest
+FROM summerwind/actions-runner-dind:latest
 ARG TARGETARCH
 USER root
 
@@ -16,6 +16,12 @@ RUN apt-get update \
     build-essential \
  && rm -rf /var/lib/apt/lists/*
 
+RUN . /etc/build-arch \
+ && curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-${ARCH}.zip" -o "/tmp/awscliv2.zip" \
+ && unzip "/tmp/awscliv2.zip" \
+ && ./aws/install \
+ && rm -r "./aws" "/tmp/awscliv2.zip"
+
 ARG DOCKER_COMPOSE_VERSION="v5.1.4"
 RUN . /etc/build-arch \
  && mkdir -p /usr/local/lib/docker/cli-plugins \
@@ -27,11 +33,5 @@ RUN . /etc/build-arch \
  && mkdir -p /usr/local/lib/docker/cli-plugins \
  && curl -SL "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${TARGETARCH}" -o /usr/libexec/docker/cli-plugins/docker-buildx \
  && chmod +x /usr/libexec/docker/cli-plugins/docker-buildx
-
-RUN . /etc/build-arch \
- && curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-${ARCH}.zip" -o "/tmp/awscliv2.zip" \
- && unzip "/tmp/awscliv2.zip" \
- && ./aws/install \
- && rm -r "./aws" "/tmp/awscliv2.zip"
 
 USER runner
