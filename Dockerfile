@@ -23,13 +23,13 @@ RUN . /etc/build-arch \
  && ./aws/install \
  && rm -r "./aws" "/tmp/awscliv2.zip"
 
-ARG DOCKER_COMPOSE_VERSION="v5.1.4"
+ARG DOCKER_COMPOSE_VERSION="v5.4.0"
 RUN . /etc/build-arch \
  && mkdir -p /usr/local/lib/docker/cli-plugins \
  && curl -SL "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-linux-${ARCH}" -o /usr/libexec/docker/cli-plugins/docker-compose \
  && chmod +x /usr/libexec/docker/cli-plugins/docker-compose
 
-ARG DOCKER_BUILDX_VERSION="v0.34.1"
+ARG DOCKER_BUILDX_VERSION="v0.36.1"
 RUN . /etc/build-arch \
  && mkdir -p /usr/local/lib/docker/cli-plugins \
  && curl -SL "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${TARGETARCH}" -o /usr/libexec/docker/cli-plugins/docker-buildx \
