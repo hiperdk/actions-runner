@@ -35,4 +35,13 @@ RUN . /etc/build-arch \
  && curl -SL "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${TARGETARCH}" -o /usr/libexec/docker/cli-plugins/docker-buildx \
  && chmod +x /usr/libexec/docker/cli-plugins/docker-buildx
 
+RUN mkdir /home/runner/.ssh \
+ && chown runner:runner /home/runner/.ssh \
+ && mkdir -p /home/runner/.docker/buildx/instances \
+ && chown -R runner:runner /home/runner/.docker
+COPY --chown=runner:runner builder_known_hosts /home/runner/.ssh/known_hosts
+COPY --chown=runner:runner buildx_instance_config.json /home/runner/.docker/buildx/instances/release-amazon
+
+ENV BUILDX_BUILDER=release-amazon
+
 USER runner

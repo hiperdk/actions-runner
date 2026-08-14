@@ -1,0 +1,41 @@
+{
+    "Name": "release-amazon",
+    "Driver": "docker-container",
+    "Nodes": [
+        {
+            "Name": "release-x86",
+            "Endpoint": "ssh://ubuntu@release-amd64-builder.hiper.dk",
+            "Platforms": [
+                {
+                    "architecture": "amd64",
+                    "os": "linux"
+                }
+            ],
+            "DriverOpts": null,
+            "Flags": [
+                "--allow-insecure-entitlement=network.host"
+            ],
+            "Files": {
+                "buildkitd.toml": "ZGVidWcgPSBmYWxzZQoKW3dvcmtlcl0KCiAgW3dvcmtlci5vY2ldCiAgICBnYyA9IHRydWUKICAgIG1heFVzZWRTcGFjZSA9ICIxNjBHQiIKICAgIG1pbkZyZWVTcGFjZSA9ICIzMEdCIgogICAgcmVzZXJ2ZWRTcGFjZSA9ICIyMEdCIgo="
+            }
+        },
+        {
+            "Name": "release-arm",
+            "Endpoint": "ssh://ubuntu@release-arm64-builder.hiper.dk",
+            "Platforms": [
+                {
+                    "architecture": "arm64",
+                    "os": "linux"
+                }
+            ],
+            "DriverOpts": null,
+            "Flags": [
+                "--allow-insecure-entitlement=network.host"
+            ],
+            "Files": {
+                "buildkitd.toml": "ZGVidWcgPSBmYWxzZQoKW3dvcmtlcl0KCiAgW3dvcmtlci5vY2ldCiAgICBnYyA9IHRydWUKICAgIG1heFVzZWRTcGFjZSA9ICIxNjBHQiIKICAgIG1pbkZyZWVTcGFjZSA9ICIzMEdCIgogICAgcmVzZXJ2ZWRTcGFjZSA9ICIyMEdCIgo="
+            }
+        }
+    ],
+    "Dynamic": false
+}
