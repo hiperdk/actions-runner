@@ -42,6 +42,4 @@ RUN mkdir /home/runner/.ssh \
 COPY --chown=runner:runner builder_known_hosts /home/runner/.ssh/known_hosts
 COPY --chown=runner:runner buildx_instance_config.json /home/runner/.docker/buildx/instances/release-amazon
 
-ENV BUILDX_BUILDER=release-amazon
-
 USER runner
