@@ -23,17 +23,17 @@ RUN . /etc/build-arch \
  && ./aws/install \
  && rm -r "./aws" "/tmp/awscliv2.zip"
 
-ARG DOCKER_COMPOSE_VERSION="v5.4.0"
+ARG DOCKER_COMPOSE_VERSION="v5.7.0"
 RUN . /etc/build-arch \
  && mkdir -p /usr/local/lib/docker/cli-plugins \
- && curl -SL "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-linux-${ARCH}" -o /usr/libexec/docker/cli-plugins/docker-compose \
- && chmod +x /usr/libexec/docker/cli-plugins/docker-compose
+ && curl -fsSL "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-linux-${ARCH}" -o /usr/local/lib/docker/cli-plugins/docker-compose \
+ && chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
-ARG DOCKER_BUILDX_VERSION="v0.36.1"
+ARG DOCKER_BUILDX_VERSION="v0.38.2"
 RUN . /etc/build-arch \
  && mkdir -p /usr/local/lib/docker/cli-plugins \
- && curl -SL "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${TARGETARCH}" -o /usr/libexec/docker/cli-plugins/docker-buildx \
- && chmod +x /usr/libexec/docker/cli-plugins/docker-buildx
+ && curl -fsSL "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${TARGETARCH}" -o /usr/local/lib/docker/cli-plugins/docker-buildx \
+ && chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 
 RUN mkdir /home/runner/.ssh \
  && chown runner:runner /home/runner/.ssh \

@@ -1,5 +1,5 @@
 build:
-	docker build -t actions-runner .
+	docker build --pull -t actions-runner .
 	docker run -it actions-runner bash
 
 lint:
