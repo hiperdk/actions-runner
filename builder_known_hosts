@@ -1,4 +1,4 @@
-# release-amd64-builder.hiper.dk:22 SSH-2.0-OpenSSH_10.2p1 Ubuntu-2ubuntu3.5
-release-amd64-builder.hiper.dk ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8c1bodKmkVOBA6oX6+iVL0TlFM46FkLVmxN2k2Pzm2
-# release-arm64-builder.hiper.dk:22 SSH-2.0-OpenSSH_10.2p1 Ubuntu-2ubuntu3.5
-release-arm64-builder.hiper.dk ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBHIS2Mssecn5oEZYAInjc9lIkkPkd/Lh3n5+bH9kmg6
+# release-amd64-builder.hiper.dk:22 SSH-2.0-OpenSSH_10.2p1 Ubuntu-2ubuntu3.8
+release-amd64-builder.hiper.dk ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMweIOaGdA2K0RDneyvKdNtltzfLjdilzS5QiXXF055o
+# release-arm64-builder.hiper.dk:22 SSH-2.0-OpenSSH_10.2p1 Ubuntu-2ubuntu3.8
+release-arm64-builder.hiper.dk ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILl1KJchIv9Z6YVfzvY2HyOAwUwZHSB85MpLLj+K4+lH
